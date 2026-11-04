@@ -1,0 +1,32 @@
+/* 半亩山居：页面和界面。横屏；刘海屏用 safe-area 留边（--sl / --sr / --st / --sb） */
+:root{
+  --sl:env(safe-area-inset-left,0px);--sr:env(safe-area-inset-right,0px);--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);
+  --paper:#f4ecd8;--paper2:#e9dcbd;--ink:#3d3226;--line:#b59a6a;--jade:#6f9e86;--jade2:#4f7d68;--red:#b6423a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:#dfe7e1;color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  -webkit-user-select:none;user-select:none;touch-action:none;overscroll-behavior:none}
+#app{position:fixed;inset:0}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#ui{position:absolute;inset:0;pointer-events:none;
+  padding:calc(var(--st) + 8px) calc(var(--sr) + 10px) calc(var(--sb) + 8px) calc(var(--sl) + 10px)}
+#ui > *{pointer-events:auto}
+
+/* 卷轴风小牌子：边框要薄（设计01） */
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;
+  background:rgba(244,236,216,.92);border:1px solid var(--line);box-shadow:0 1px 3px rgba(60,40,20,.18);font-size:14px}
+.chip b{font-weight:600}
+.btn{height:34px;min-width:34px;padding:0 12px;border-radius:17px;border:1px solid var(--jade2);
+  background:linear-gradient(#86b39c,#6f9e86);color:#fff;font-size:14px;font-family:inherit;box-shadow:0 1px 3px rgba(40,60,50,.25)}
+.btn:active{transform:translateY(1px)}
+.hud-tl{position:absolute;left:calc(var(--sl) + 10px);top:calc(var(--st) + 8px);display:flex;gap:8px;align-items:center}
+.hud-tr{position:absolute;right:calc(var(--sr) + 10px);top:calc(var(--st) + 8px);display:flex;gap:6px}
+.hud-bl{position:absolute;left:calc(var(--sl) + 10px);bottom:calc(var(--sb) + 8px);font:11px/1.4 monospace;color:#4d5a52;opacity:.75;pointer-events:none}
+.seal{display:inline-flex;width:26px;height:26px;border-radius:4px;background:var(--red);color:#f7e9df;font-size:11px;line-height:12px;
+  align-items:center;justify-content:center;text-align:center;writing-mode:vertical-rl;letter-spacing:-1px}
+
+/* 竖屏提示（手机竖着拿时盖住画面） */
+#rotate{display:none;position:fixed;inset:0;z-index:99;background:#e8e2d0;align-items:center;justify-content:center;text-align:center}
+#rotate b{display:block;font-size:20px;margin-bottom:6px}#rotate small{color:#776}
+@media (orientation:portrait) and (max-width:900px){#rotate{display:flex}}
