@@ -30,8 +30,10 @@
 @keyframes bootBlink{50%{opacity:.35}}
 #boot.ready #bootBar,#boot.ready #bootTxt{display:none}#boot.ready #bootGo{display:block}
 #bootBtns{display:none;gap:10px;justify-content:center;margin-top:6px}#bootBtns.on{display:flex}
-#bootBtns button,#bootLogin button{height:34px;padding:0 16px;border-radius:17px;border:1px solid #4f7d68;background:linear-gradient(#86b39c,#6f9e86);color:#fff;font:14px inherit;font-family:inherit}
-#bootBtns button.g,#bootLogin button.g{background:#efe5cc;color:#3d3226;border-color:#b59a6a}
+#bootBtns button,#bootLogin button{height:34px;min-width:calc(38px + 2em);padding:0 6px;border-style:solid;border-color:transparent;border-width:10px 15px;border-image:url(img/ui/按钮_裱_绿.png?v=e62d5ff7) 40 64 fill / 10px 15px stretch;background:none;border-radius:0;color:#4a3826;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer}
+#bootBtns button.g,#bootLogin button.g{border-image-source:url(img/ui/按钮_裱_米.png?v=eb4e0aa8)}
+#bootBtns button:active,#bootLogin button:active{border-image-source:url(img/ui/按钮_裱_按下.png?v=0b01fe18);transform:translateY(1px)}
+#bootBtns button:disabled,#bootLogin button:disabled{filter:grayscale(.8) opacity(.6)}
 #bootVer{position:absolute;right:calc(env(safe-area-inset-right,0px) + 10px);bottom:calc(env(safe-area-inset-bottom,0px) + 6px);font-size:11px;color:rgba(60,50,38,.55)}
 #bootLogin{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(340px,86vw);max-height:92vh;overflow:auto;padding:4px 18px 8px;border-style:solid;border-color:transparent;border-width:20px 25px;border-image:url(img/ui/卷轴大面板.png?v=58442469) 40 50 40 50 fill / 20px 25px stretch;text-align:center;font-size:14px}
 #bootLogin.on{display:block}#bootLogin h4{margin:0 0 8px;font-size:17px;letter-spacing:2px}
@@ -58,13 +60,13 @@
     <div id="bootBtns"><button id="bootRetry">再试一次</button><button id="bootSkip" class="g">先进游戏</button></div>
   </div>
   <div id="bootLogin"></div>
-  <div id="bootVer">V0.40</div>
+  <div id="bootVer">V0.41</div>
 </div>
 <script>
 /* 背景按短边等比放大、居中裁（印章跟着图一起缩放，盖在原来「居居」那个印上） */
 (function(){function f(){var e=document.getElementById('bootBg');if(!e)return;var k=Math.max(innerWidth/1376,innerHeight/768);e.style.transform='scale('+k+') translate(-50%,-50%)'}f();addEventListener('resize',f)})();
 </script>
 <div id="rotate"><div><b>请把手机横过来</b><small>半亩山居是横屏游戏</small></div></div>
-<script src="game.js?v=e8115221"></script>
+<script src="game.js?v=6452dc75"></script>
 </body>
 </html>
